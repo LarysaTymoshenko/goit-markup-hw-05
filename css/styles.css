@@ -113,7 +113,7 @@ img {
   padding-left: 15px;
   padding-right: 15px;
 }
-.site-nav .link {
+.site-nav .link-activ {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.17;
@@ -122,16 +122,46 @@ img {
   color: var(--primery-text-color);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.link-activ {
+  position: relative;
 
-.link {
   padding-top: 32px;
   padding-bottom: 32px;
-  letter-spacing: 0.02em;
+
+  display: flex;
+  align-items: center;
 }
+
+.current::after {
+  content: '';
+  position: absolute;
+
+  display: block;
+  width: 100%;
+  height: 4px;
+
+  background-color: var(--accent-text-color);
+  left: 0px;
+  bottom: 0px;
+  border-radius: 2px;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.17;
+  display: block;
+  letter-spacing: 0.02em;
+  color: var(--primery-text-color);
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
 .link {
   display: flex;
   align-items: center;
 }
+
 .site-nav {
   display: flex;
   align-items: center;
@@ -247,8 +277,8 @@ img {
 }
 
 /* Ссылки и контакты в хедере и футере*/
-.site-nav .link:hover,
-.site-nav .link:focus,
+.site-nav .link-activ:hover,
+.site-nav .link-activ:focus,
 .contact-link .link:focus,
 .contact-footer .link:hover,
 .contact-footer .link:focus,
@@ -261,11 +291,6 @@ img {
 }
 
 /* Студия, текст и заголовки*/
-.section-color {
-  background: var(--btn-portfolio-color);
-  padding-bottom: 94px;
-  padding-top: 94px;
-}
 
 .section {
   padding-bottom: 0px;
@@ -280,10 +305,6 @@ img {
   padding-top: 94px;
 }
 
-.section-portfolio {
-  padding-bottom: 94px;
-  padding-top: 94px;
-}
 .section-one-title {
   font-weight: 700;
   font-size: 14px;
@@ -319,32 +340,6 @@ img {
   letter-spacing: 0.03em;
   color: var(--primery-text-color);
 }
-/* Наша команда*/
-.comand {
-  padding: 30px 30px;
-}
-
-.section-three-text {
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.03em;
-  color: var(--secondary-text-color);
-  line-height: 1.18;
-  text-align: center;
-  margin-top: 10px;
-}
-.list-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.list-section .item-comand {
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 0px 0px 4px 4px;
-  background: var(--link-text-color);
-}
-
 .list-section .item-overlay:not(:first-child) {
   margin-left: 30px;
 }
@@ -368,6 +363,36 @@ img {
   padding: 30px 0px 27px 0px;
   color: var(--link-text-color);
   background-color: rgba(47, 48, 58, 0.8);
+}
+/* Наша команда*/
+.comand {
+  padding: 30px 30px;
+}
+.section-color {
+  background: var(--btn-portfolio-color);
+  padding-bottom: 94px;
+  padding-top: 94px;
+}
+
+.section-three-text {
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
+  line-height: 1.18;
+  text-align: center;
+  margin-top: 10px;
+}
+.list-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-section .item-comand {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+  background: var(--link-text-color);
 }
 
 /* Постоянные клиенты*/
@@ -458,19 +483,53 @@ img {
   flex-basis: calc((100% - 90px) / 3);
   border: 1px solid#EEEEEE;
 }
-.two-portfolio-item:hover,
+.two-portfolio-a:hover,
 .two-portfolio-a:focus {
   box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16), 0px 4px 4px 0px rgba(0, 0, 0, 0.06),
     0px 1px 1px 0px rgba(0, 0, 0, 0.12);
 }
 .two-portfolio-a {
   display: block;
+  color: var(--secondary-text-color);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .box {
   padding: 20px 24px;
 }
+.section-portfolio {
+  padding-bottom: 94px;
+  padding-top: 94px;
+}
 
+.portfolio-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-descrp {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-text-color);
+  color: var(--link-text-color);
+  text-align: center;
+  padding: 64px 23px;
+
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  font-style: normal;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(100%);
+}
+
+.two-portfolio-a:hover .portfolio-descrp,
+.two-portfolio-a:focus:hover .portfolio-descrp {
+  transform: translateY(0%);
+}
 /* HERO */
 .hero {
   text-align: center;
