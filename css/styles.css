@@ -252,15 +252,13 @@ img {
 .list-social .list-social-item:not(:last-child) {
   margin-right: 10px;
 }
-.list-social-item > a:hover > .icon-list-social,
-.list-social-item > a:focus > .icon-list-social {
-  fill: var(--link-text-color);
-}
+
 .list-social-item > a:focus {
   background-color: var(--accent-text-color);
   border-radius: 50%;
   cursor: pointer;
   color: var(--link-text-color);
+  fill: var(--link-text-color);
 }
 
 .list-social-link:hover {
@@ -268,6 +266,7 @@ img {
   border-radius: 50%;
   cursor: pointer;
   color: var(--link-text-color);
+  fill: var(--link-text-color);
 }
 
 /* END  иконки соц.сетей*/
